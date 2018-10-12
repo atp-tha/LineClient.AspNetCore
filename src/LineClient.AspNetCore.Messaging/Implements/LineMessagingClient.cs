@@ -16,9 +16,10 @@ namespace LineClient.AspNetCore.Messaging.Implements
             this.lineHttpClient = lineHttpClient;
         }
 
-        public Task<LineUserInfo> GetChatRoomInfoAsync(string ChatRoomUID)
+        public async Task<LineChatRoomInfo> GetChatRoomInfoAsync(string ChatRoomUID, string LineUID)
         {
-            throw new System.NotImplementedException();
+            var data = await lineHttpClient.GetRoomProfileAsync(ChatRoomUID, LineUID).ConfigureAwait(false);
+            return JsonConvert.DeserializeObject<LineChatRoomInfo>(Encoding.UTF8.GetString(data));
         }
 
         public async Task<LineUserInfo> GetUserInfoAsync(string LineUID)
