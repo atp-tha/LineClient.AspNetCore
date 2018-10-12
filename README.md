@@ -1,4 +1,5 @@
 
+
 LineClient.AspNetCore
 ============
 
@@ -6,24 +7,10 @@ LINE Developers' API Client for .NET Core.
 
 Library created for .NET Core implementation based on LINE Developer's documentation (https://developers.line.me/en/).
 
-## APIs
-
-
-### LineClient.AspNetCore.Messaging
-Add this to your project's Startup.cs to enable injection of ```ILineMessagingClient```.
-
-```
-  services.AddLineMessagingClient("CHANNEL_ACCESS_TOKEN_HERE");
-```
-Then you're able to inject ```ILineMessagingClient``` to anything using .NET Core's built in Dependency Injection.
-
-Classes:
-* Coming Soon !
-
-What it does: 
-* Coming Soon !
-
+## Packages
+Packages will be based from LINE Developer's documentation (https://developers.line.me/en/): 
+* [LineClient.AspNetCore.Messaging](https://github.com/beam-codegrind/LineClient.AspNetCore/tree/master/src/LineClient.AspNetCore.Messaging) - Messaging API
 
 ## Contributing
 
-Will be updated with architecture and getting started.
+Every project in the solution has its own readme.md. Navigate to those folders to read about intended architecture and function.
