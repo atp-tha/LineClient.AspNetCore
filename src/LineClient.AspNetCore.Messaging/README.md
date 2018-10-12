@@ -19,7 +19,7 @@ This class extends upon ```HttpClientFactory``` typed client implementation. All
 This class has three main functions:
 * GetUserInfoAsync - Return ```LineUserInfo``` of a user using user's ID.
 * GetChatRoomInfoAsync - Return ```LineChatRoomInfo``` of a chat room using room's ID.
-* PushMessage has 2 overloads:
+* PushMessageAsync has 2 overloads:
 	* Push an ```ILineMessage``` to a user using ```LineUserInfo```
 	* Push an ```ILineMessage``` to a chat room using ```LineChatRoomInfo```
 ## ILineMessage
