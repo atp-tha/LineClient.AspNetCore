@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27924.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1E18ADB6-836D-442C-989D-9BC9C0102C18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{810CEE43-5AB7-47FF-B4B5-BC6398A2ADED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{E58802C4-60B0-49FA-8445-25FD4F43E704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineClient.AspNetCore.Messaging", "src\LineClient.AspNetCore.Messaging\LineClient.AspNetCore.Messaging.csproj", "{E9D883FD-7D1A-41D6-A852-6F9A1F279E66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "test\web\WebApi\WebApi.csproj", "{E43F4F06-3E2B-4019-ACDD-1961C6AB553C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9D883FD-7D1A-41D6-A852-6F9A1F279E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9D883FD-7D1A-41D6-A852-6F9A1F279E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9D883FD-7D1A-41D6-A852-6F9A1F279E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9D883FD-7D1A-41D6-A852-6F9A1F279E66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E43F4F06-3E2B-4019-ACDD-1961C6AB553C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43F4F06-3E2B-4019-ACDD-1961C6AB553C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43F4F06-3E2B-4019-ACDD-1961C6AB553C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43F4F06-3E2B-4019-ACDD-1961C6AB553C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E58802C4-60B0-49FA-8445-25FD4F43E704} = {810CEE43-5AB7-47FF-B4B5-BC6398A2ADED}
+		{E9D883FD-7D1A-41D6-A852-6F9A1F279E66} = {1E18ADB6-836D-442C-989D-9BC9C0102C18}
+		{E43F4F06-3E2B-4019-ACDD-1961C6AB553C} = {E58802C4-60B0-49FA-8445-25FD4F43E704}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EC0F810-D19A-4B08-BDB1-1142CD296465}
+	EndGlobalSection
+EndGlobal
