@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LineClient.AspNetCore.Messaging.Models
 {
-    public class LineRoomInfo
+    public class LineChatRoomInfo
     {
     }
 }
