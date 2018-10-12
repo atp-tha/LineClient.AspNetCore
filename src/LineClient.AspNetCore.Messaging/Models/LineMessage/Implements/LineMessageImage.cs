@@ -1,6 +1,8 @@
-﻿namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
+﻿using LineClient.AspNetCore.Messaging.Models.LineMessage.Interfaces;
+
+namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
 {
-    public class LineMessageImage : ILineMessage
+    public class LineMessageImage : ILineMessageImage
     {
         public string GenerateStringContent()
         {
