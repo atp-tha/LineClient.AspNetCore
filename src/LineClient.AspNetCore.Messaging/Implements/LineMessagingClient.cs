@@ -22,9 +22,9 @@ namespace LineClient.AspNetCore.Messaging.Implements
             return JsonConvert.DeserializeObject<LineChatRoomInfo>(Encoding.UTF8.GetString(data));
         }
 
-        public async Task<LineUserInfo> GetUserInfoAsync(string LineUID)
+        public async Task<LineUserInfo> GetUserInfoAsync(string userId)
         {
-            var data = await lineHttpClient.GetProfileAsync(LineUID).ConfigureAwait(false);
+            var data = await lineHttpClient.GetProfileAsync(userId).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<LineUserInfo>(Encoding.UTF8.GetString(data));
         }
 
@@ -38,7 +38,7 @@ namespace LineClient.AspNetCore.Messaging.Implements
             throw new System.NotImplementedException();
         }
 
-        Task<LineChatRoomInfo> ILineMessagingClient.GetChatRoomInfoAsync(string ChatRoomUID)
+        Task<LineChatRoomInfo> ILineMessagingClient.GetChatRoomInfoAsync(string roomId)
         {
             throw new System.NotImplementedException();
         }
