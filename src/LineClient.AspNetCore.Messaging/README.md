@@ -1,5 +1,6 @@
 
 
+
 LineClient.AspNetCore.Messaging
 ============
 Library created for .NET Core implementation based on [LINE Messaging API's documentation ](https://developers.line.me/en/services/messaging-api/).
@@ -24,3 +25,6 @@ This class has three main functions:
 	* Push an ```ILineMessage``` to a chat room using ```LineChatRoomInfo```
 ## ILineMessage
 An interface for any LINE message with various types of LINE message which have their own ```GenerateStringContent``` implementation.
+## Naming Conventions
+### Paramters
+Name should be based from [LINE Messaging API](https://developers.line.me/en/reference/messaging-api/) and follow [Microsoft's guidline](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods)
