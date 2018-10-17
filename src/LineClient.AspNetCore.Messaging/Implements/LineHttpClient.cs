@@ -17,13 +17,13 @@ namespace LineClient.AspNetCore.Messaging.Implements
             _client = client;
         }
 
-        public Task<byte[]> GetProfileAsync(string UID)
+        public Task<byte[]> GetProfileAsync(string userId)
         {
-            return _client.GetByteArrayAsync($"{lineApiV2Url}/bot/profile/{UID}");
+            return _client.GetByteArrayAsync($"{lineApiV2Url}/bot/profile/{userId}");
         }
-        public Task<byte[]> GetRoomProfileAsync(string RoomID, string UID)
+        public Task<byte[]> GetRoomProfileAsync(string roomId, string userId)
         {
-            return _client.GetByteArrayAsync($"{lineApiV2Url}/bot/room/{RoomID}/member/{UID}");
+            return _client.GetByteArrayAsync($"{lineApiV2Url}/bot/room/{roomId}/member/{userId}");
         }
         public async Task<HttpClient> GetHttpClient()
         {
