@@ -22,5 +22,5 @@ Then you're able to inject `ILineMessagingClient` to anything using .NET Core's 
 ## Contributing
 Getting started by [logging in](https://developers.line.me/console/) to your LINE account and enable developer mode. Get your access token and start hacking!
 
-Every project in the solution has its own readme.md. Navigate to those folders to read about intended architecture and function.
+Every project in the solution has its own README.md. Navigate to those folders to read about intended architecture and function.
 * [LineClient.AspNetCore.Messaging](https://github.com/beam-codegrind/LineClient.AspNetCore/tree/master/src/LineClient.AspNetCore.Messaging) - Messaging API
