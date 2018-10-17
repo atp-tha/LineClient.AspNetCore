@@ -2,7 +2,7 @@
 
 namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
 {
-    public class LineMessageText : ILineMessageText
+    public class LineImageMessage : ILineImageMessage
     {
         public string GenerateStringContent()
         {
