@@ -2,6 +2,7 @@
 using LineClient.AspNetCore.Messaging.Models;
 using LineClient.AspNetCore.Messaging.Models.LineMessage;
 using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,9 +29,14 @@ namespace LineClient.AspNetCore.Messaging.Implements
             return JsonConvert.DeserializeObject<LineUserInfo>(Encoding.UTF8.GetString(data));
         }
 
-        public Task PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo)
+        public async Task<string> PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo, PushMessageModel message)
         {
-            throw new System.NotImplementedException();
+            StringContent stringContent = lineMessage.GenerateStringContent(message);
+            HttpClient client = await lineHttpClient.GetHttpClient();
+            HttpResponseMessage response = await client.PostAsync("https://api.line.me/v2/bot/message/push", stringContent);
+            response.EnsureSuccessStatusCode();
+
+            return JsonConvert.SerializeObject(message.messages);
         }
 
         public Task PushMessageAsync(ILineMessage lineMessage, LineChatRoomInfo chatRoomInfo)

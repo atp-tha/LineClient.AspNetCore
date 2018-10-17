@@ -1,7 +1,9 @@
-﻿namespace LineClient.AspNetCore.Messaging.Models.LineMessage
+﻿using System.Net.Http;
+
+namespace LineClient.AspNetCore.Messaging.Models.LineMessage
 {
     public interface ILineMessage
     {
-        string GenerateStringContent();
+        StringContent GenerateStringContent(PushMessageModel message);
     }
 }

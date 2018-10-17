@@ -8,7 +8,7 @@ namespace LineClient.AspNetCore.Messaging.Interfaces
     {
         Task<LineUserInfo> GetUserInfoAsync(string LineUID);
         Task<LineChatRoomInfo> GetChatRoomInfoAsync(string ChatRoomUID);
-        Task PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo);
+        Task<string> PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo);
         Task PushMessageAsync(ILineMessage lineMessage, LineChatRoomInfo chatRoomInfo);
     }
 }

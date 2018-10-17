@@ -25,5 +25,9 @@ namespace LineClient.AspNetCore.Messaging.Implements
         {
             return _client.GetByteArrayAsync($"{lineApiV2Url}/bot/room/{RoomID}/member/{UID}");
         }
+        public async Task<HttpClient> GetHttpClient()
+        {
+            return _client;
+        }
     }
 }
