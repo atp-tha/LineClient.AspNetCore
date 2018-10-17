@@ -30,7 +30,7 @@ Web API Example:
 [HttpGet("{id}")]
 public async Task<ActionResult<string>> Get([FromServices] ILineMessagingClient lineMessagingClient)
 {
-    var message = new LineMessageText()
+    var message = new LineTextMessage()
     {
         //message properties here
     };
