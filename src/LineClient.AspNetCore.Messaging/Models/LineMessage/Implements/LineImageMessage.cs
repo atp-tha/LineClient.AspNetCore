@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
 {
-    public class LineMessageImage : ILineMessageImage
+    public class LineImageMessage : ILineImageMessage
     {
         public StringContent GenerateStringContent()
         {

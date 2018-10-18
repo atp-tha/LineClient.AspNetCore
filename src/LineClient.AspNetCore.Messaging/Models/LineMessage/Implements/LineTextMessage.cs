@@ -7,7 +7,7 @@ using System.Text;
 
 namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
 {
-    public class LineMessageText : ILineMessageText
+    public class LineTextMessage : ILineTextMessage
     {
         private readonly string toLineUserId;
         private readonly string message;
