@@ -17,9 +17,9 @@ namespace LineClient.AspNetCore.Messaging.Implements
             this.lineHttpClient = lineHttpClient;
         }
 
-        public async Task<LineChatRoomInfo> GetChatRoomInfoAsync(string ChatRoomUID, string LineUID)
+        public async Task<LineChatRoomInfo> GetChatRoomInfoAsync(string chatRoomUserId, string lineUserId)
         {
-            var data = await lineHttpClient.GetRoomProfileAsync(ChatRoomUID, LineUID).ConfigureAwait(false);
+            var data = await lineHttpClient.GetRoomProfileAsync(chatRoomUserId, lineUserId).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<LineChatRoomInfo>(Encoding.UTF8.GetString(data));
         }
 
@@ -29,14 +29,14 @@ namespace LineClient.AspNetCore.Messaging.Implements
             return JsonConvert.DeserializeObject<LineUserInfo>(Encoding.UTF8.GetString(data));
         }
 
-        public async Task<string> PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo, PushMessageModel message)
-        {
-            StringContent stringContent = lineMessage.GenerateStringContent(message);
+        public async Task<string> PushMessageAsync(ILineMessage StringContent, LineUserInfo userInfo)
+        {   
             HttpClient client = await lineHttpClient.GetHttpClient();
+            StringContent stringContent = StringContent.GenerateStringContent();
             HttpResponseMessage response = await client.PostAsync("https://api.line.me/v2/bot/message/push", stringContent);
             response.EnsureSuccessStatusCode();
 
-            return JsonConvert.SerializeObject(message.messages);
+            return "";
         }
 
         public Task PushMessageAsync(ILineMessage lineMessage, LineChatRoomInfo chatRoomInfo)

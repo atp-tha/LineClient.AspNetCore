@@ -4,6 +4,6 @@ namespace LineClient.AspNetCore.Messaging.Models.LineMessage
 {
     public interface ILineMessage
     {
-        StringContent GenerateStringContent(PushMessageModel message);
+        StringContent GenerateStringContent();
     }
 }
