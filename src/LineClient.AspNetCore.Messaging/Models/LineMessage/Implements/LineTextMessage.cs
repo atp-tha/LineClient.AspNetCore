@@ -11,7 +11,7 @@ namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
     {
         private readonly string toLineUserId;
         private readonly string message;
-        public LineMessageText (string toLineUserId, string message)
+        public LineTextMessage(string toLineUserId, string message)
         {
             this.toLineUserId = toLineUserId;
             this.message = message;
@@ -26,8 +26,7 @@ namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
             JsonObj_Message.text = message;
             JsonObj.messages.Add(JsonObj_Message);
             string JsonObjSerialize = JsonConvert.SerializeObject(JsonObj);
-            StringContent stringContent = new StringContent(JsonObjSerialize, Encoding.UTF8, "application/json");
-            return stringContent;
+            return new StringContent(JsonObjSerialize, Encoding.UTF8, "application/json"); ;
         }   
     }
 }

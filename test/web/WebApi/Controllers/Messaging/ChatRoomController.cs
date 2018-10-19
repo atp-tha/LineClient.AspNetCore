@@ -29,7 +29,7 @@ namespace WebApi.Controllers.Messaging
         [HttpGet("{id}")]
         public async Task<ActionResult<string>> Get(string toLineUserId, string message, string userId)
         {
-            var lineMessage = new LineMessageText(toLineUserId, message);
+            var lineMessage = new LineTextMessage(toLineUserId, message);
             var userInfo = await lineMessagingClient.GetUserInfoAsync(userId);
             string returndata = await lineMessagingClient.PushMessageAsync(lineMessage, userInfo);
             return returndata;

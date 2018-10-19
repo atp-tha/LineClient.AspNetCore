@@ -7,6 +7,6 @@ namespace LineClient.AspNetCore.Messaging.Interfaces
     {
         Task<byte[]> GetProfileAsync(string UID);
         Task<byte[]> GetRoomProfileAsync(string ChatRoomUID, string LineUID);
-        Task<HttpClient> GetHttpClient();
+        Task PushMessage(StringContent message);
     }
 }

@@ -25,9 +25,12 @@ namespace LineClient.AspNetCore.Messaging.Implements
         {
             return _client.GetByteArrayAsync($"{lineApiV2Url}/bot/room/{roomId}/member/{userId}");
         }
-        public async Task<HttpClient> GetHttpClient()
+        public async Task PushMessage(StringContent message)
         {
-            return _client;
+            HttpResponseMessage response = await _client.PostAsync("https://api.line.me/v2/bot/message/push", message);
+            response.EnsureSuccessStatusCode();
         }
+
+
     }
 }

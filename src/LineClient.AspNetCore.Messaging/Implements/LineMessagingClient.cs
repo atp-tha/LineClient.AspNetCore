@@ -29,22 +29,13 @@ namespace LineClient.AspNetCore.Messaging.Implements
             return JsonConvert.DeserializeObject<LineUserInfo>(Encoding.UTF8.GetString(data));
         }
 
-        public async Task<string> PushMessageAsync(ILineMessage StringContent, LineUserInfo userInfo)
+        public async Task<string> PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo)
         {   
-            HttpClient client = await lineHttpClient.GetHttpClient();
-            StringContent stringContent = StringContent.GenerateStringContent();
-            HttpResponseMessage response = await client.PostAsync("https://api.line.me/v2/bot/message/push", stringContent);
-            response.EnsureSuccessStatusCode();
-
-            return "";
+            StringContent stringContent = lineMessage.GenerateStringContent();
+            return JsonConvert.SerializeObject(lineMessage);
         }
 
         public Task PushMessageAsync(ILineMessage lineMessage, LineChatRoomInfo chatRoomInfo)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<LineChatRoomInfo> ILineMessagingClient.GetChatRoomInfoAsync(string roomId)
         {
             throw new System.NotImplementedException();
         }
