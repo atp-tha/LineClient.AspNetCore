@@ -11,7 +11,6 @@ namespace WebApi.Controllers.Messaging
     [ApiController]
     public class ChatRoomController : ControllerBase
     {
-        private readonly HttpClient _client;
         private readonly ILineMessagingClient lineMessagingClient;
 
         public ChatRoomController (ILineMessagingClient lineMessagingClient)

@@ -16,6 +16,7 @@ namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
             this.toLineUserId = toLineUserId;
             this.message = message;
         }
+
         public StringContent GenerateStringContent()
         {
             dynamic JsonObj = new ExpandoObject();
@@ -26,7 +27,7 @@ namespace LineClient.AspNetCore.Messaging.Models.LineMessage.Implements
             JsonObj_Message.text = message;
             JsonObj.messages.Add(JsonObj_Message);
             string JsonObjSerialize = JsonConvert.SerializeObject(JsonObj);
-            return new StringContent(JsonObjSerialize, Encoding.UTF8, "application/json"); ;
+            return new StringContent(JsonObjSerialize, Encoding.UTF8, "application/json");
         }   
     }
 }
