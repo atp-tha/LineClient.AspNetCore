@@ -29,10 +29,9 @@ namespace LineClient.AspNetCore.Messaging.Implements
             return JsonConvert.DeserializeObject<LineUserInfo>(Encoding.UTF8.GetString(data));
         }
 
-        public async Task<string> PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo)
+        public async Task PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo)
         {   
             StringContent stringContent = lineMessage.GenerateStringContent();
-            return JsonConvert.SerializeObject(lineMessage);
         }
 
         public Task PushMessageAsync(ILineMessage lineMessage, LineChatRoomInfo chatRoomInfo)

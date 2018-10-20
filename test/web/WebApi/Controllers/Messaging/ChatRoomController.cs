@@ -25,13 +25,12 @@ namespace WebApi.Controllers.Messaging
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<string>> Get(string toLineUserId, string message, string userId)
+        [HttpPost]
+        public async Task Post(string toLineUserId, string message, string userId)
         {
             var lineMessage = new LineTextMessage(toLineUserId, message);
             var userInfo = await lineMessagingClient.GetUserInfoAsync(userId);
-            string returndata = await lineMessagingClient.PushMessageAsync(lineMessage, userInfo);
-            return returndata;
+            await lineMessagingClient.PushMessageAsync(lineMessage, userInfo);
         }
         // POST api/values
         [HttpPost]
