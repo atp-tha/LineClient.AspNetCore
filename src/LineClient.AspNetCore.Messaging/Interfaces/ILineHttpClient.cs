@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace LineClient.AspNetCore.Messaging.Interfaces
 {
@@ -6,5 +7,6 @@ namespace LineClient.AspNetCore.Messaging.Interfaces
     {
         Task<byte[]> GetProfileAsync(string userId);
         Task<byte[]> GetRoomProfileAsync(string roomId, string userId);
+        Task PushMessage(StringContent message);
     }
 }

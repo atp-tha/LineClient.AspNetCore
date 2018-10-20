@@ -2,6 +2,7 @@
 using LineClient.AspNetCore.Messaging.Models;
 using LineClient.AspNetCore.Messaging.Models.LineMessage;
 using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,9 +17,9 @@ namespace LineClient.AspNetCore.Messaging.Implements
             this.lineHttpClient = lineHttpClient;
         }
 
-        public async Task<LineChatRoomInfo> GetChatRoomInfoAsync(string ChatRoomUID, string LineUID)
+        public async Task<LineChatRoomInfo> GetChatRoomInfoAsync(string roomId, string userId)
         {
-            var data = await lineHttpClient.GetRoomProfileAsync(ChatRoomUID, LineUID).ConfigureAwait(false);
+            var data = await lineHttpClient.GetRoomProfileAsync(roomId, userId).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<LineChatRoomInfo>(Encoding.UTF8.GetString(data));
         }
 
@@ -28,17 +29,12 @@ namespace LineClient.AspNetCore.Messaging.Implements
             return JsonConvert.DeserializeObject<LineUserInfo>(Encoding.UTF8.GetString(data));
         }
 
-        public Task PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo)
-        {
-            throw new System.NotImplementedException();
+        public async Task PushMessageAsync(ILineMessage lineMessage, LineUserInfo userInfo)
+        {   
+            StringContent stringContent = lineMessage.GenerateStringContent();
         }
 
         public Task PushMessageAsync(ILineMessage lineMessage, LineChatRoomInfo chatRoomInfo)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<LineChatRoomInfo> ILineMessagingClient.GetChatRoomInfoAsync(string roomId)
         {
             throw new System.NotImplementedException();
         }

@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LineClient.AspNetCore.Messaging.Interfaces;
+using LineClient.AspNetCore.Messaging.Models.LineMessage.Implements;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace WebApi.Controllers.Messaging
 {
@@ -7,6 +11,12 @@ namespace WebApi.Controllers.Messaging
     [ApiController]
     public class ChatRoomController : ControllerBase
     {
+        private readonly ILineMessagingClient lineMessagingClient;
+
+        public ChatRoomController (ILineMessagingClient lineMessagingClient)
+        {
+            this.lineMessagingClient = lineMessagingClient;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -15,12 +25,13 @@ namespace WebApi.Controllers.Messaging
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpPost]
+        public async Task Post(string toLineUserId, string message, string userId)
         {
-            return "value";
+            var lineMessage = new LineTextMessage(toLineUserId, message);
+            var userInfo = await lineMessagingClient.GetUserInfoAsync(userId);
+            await lineMessagingClient.PushMessageAsync(lineMessage, userInfo);
         }
-
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
