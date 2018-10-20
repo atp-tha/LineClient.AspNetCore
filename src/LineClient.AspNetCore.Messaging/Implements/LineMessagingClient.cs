@@ -23,7 +23,7 @@ namespace LineClient.AspNetCore.Messaging.Implements
             return JsonConvert.DeserializeObject<LineChatRoomInfo>(Encoding.UTF8.GetString(data));
         }
 
-        public async Task<LineUserInfo> GetUserInfoAsync(string userId)
+        public virtual async Task<LineUserInfo> GetUserInfoAsync(string userId)
         {
             var data = await lineHttpClient.GetProfileAsync(userId).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<LineUserInfo>(Encoding.UTF8.GetString(data));
