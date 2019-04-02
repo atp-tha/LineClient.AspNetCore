@@ -8,6 +8,9 @@ LINE Developers' API Client for .NET Core.
 
 Library created for .NET Core implementation based on [LINE Developer's documentation](https://developers.line.me/en/) .
 
+##  LINEClient.AspNetCore.Notify
+A package to utilize [LINE Notify API](https://notify-bot.line.me/doc/en/) .
+
 ##  LineClient.AspNetCore.Messaging
 A package to utilize [LINE Messaging API](https://developers.line.me/en/services/messaging-api/) .
 ### How to use
