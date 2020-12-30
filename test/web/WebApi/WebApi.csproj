@@ -9,10 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\src\LineClient.AspNetCore.Messaging\LineClient.AspNetCore.Messaging.csproj" />
   </ItemGroup>
 
