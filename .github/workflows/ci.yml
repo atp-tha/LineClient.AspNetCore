@@ -6,8 +6,10 @@ on:
 jobs:
   build:
     name: Build & Run Unit Tests
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -15,7 +17,7 @@ jobs:
       with:
         dotnet-version: 5.0.101
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore --locked-mode
     - name: Build
       run: dotnet build --no-restore
     - name: Test
