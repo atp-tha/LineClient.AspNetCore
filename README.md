@@ -2,6 +2,9 @@
 
 
 LineClient.AspNetCore
+<a href="https://github.com/atp-tha/LineClient.AspNetCore/actions?query=workflow%3A%22Continuous+Integration%22">
+    <img src="https://img.shields.io/github/workflow/status/atp-tha/LineClient.AspNetCore/Continuous%20Integration">
+</a>
 ============
 
 LINE Developers' API Client for .NET Core.
